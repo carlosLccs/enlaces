@@ -1,0 +1,24 @@
+{% extends 'linkapp/plantilla.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container" style="text-align: center;">
+    <h1>Actualizar Enlace</h1>
+    <form action="" method="POST">{% csrf_token %}
+    <div class="form-control">
+        <p>{{form.titulo.label}}</p>
+        {% render_field form.titulo class+="form-control" %}
+    </div>
+    <div class="form-control">
+        <p>{{form.descripcion.label}}</p>
+        {% render_field form.descripcion class+="form-control" %}
+    </div>
+    <div class="form-control">
+        <p>{{form.enlace.label}}</p>
+        {% render_field form.enlace class+="form-control" %}
+    </div>
+    <div class="action">
+        <button type="submit" class="btn btn-success" style="width: 100%;">Actualizar</button>
+    </div>
+    </form>
+</div>
+{% endblock %}

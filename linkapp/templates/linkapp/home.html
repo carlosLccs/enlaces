@@ -1,0 +1,31 @@
+{% extends 'linkapp/plantilla.html' %}
+{% block content %}
+<div class="container" style="text-align: center;">
+    <h1>Enlances de Interes</h1>
+    <a href="{% url 'linkapp:agregar' %}" class="btn btn-primary btn-block active" role="button" aria-pressed="true">AGREGAR NUEVO ENLACE</a>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col-3">Titulo</th>
+            <th scope="col-4">Descripcion</th>
+            <th scope="col-1">Enlace</th>
+            <th scope="col-2">Editar</th>
+            <th scope="col-2">borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for enlace in enlaces %}
+          <tr>
+            <td>{{enlace.titulo}}</td>
+            <td>{{enlace.descripcion}}</td>
+            <td><a href="{{enlace.enlace}}" class="btn btn-success btn-lg active" role="button" aria-pressed="true"><i class="fa fa-link"></i></a></td>
+            <td><a href="{% url 'linkapp:editar' enlace.id %}" class="btn btn-info btn-lg active" role="button" aria-pressed="true"><i class="fas fa-pen"></i></a></i></td>
+            <td><a href="{% url 'linkapp:eliminar' enlace.id %}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true"><i class="fas fa-trash"></i></a></td>
+           
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+</div>
+{% endblock %}
